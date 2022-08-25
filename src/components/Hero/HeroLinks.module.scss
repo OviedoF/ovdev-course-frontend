@@ -1,0 +1,19 @@
+.container{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+@keyframes appear {
+    0%{
+        right: -100%;
+    }
+
+    100%{
+        right: 0;
+    }
+}

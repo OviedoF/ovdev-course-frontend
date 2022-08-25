@@ -1,0 +1,28 @@
+.markdown{
+    height: 85%;
+    width: 100%;
+    position: relative;
+    padding: 30px;
+    box-sizing: border-box;
+
+    .image_container{
+        position: relative;
+        width: 100%;
+        height: 350px;
+        opacity: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .subImage_container{
+            position: relative;
+            width: 60%;
+            height: 60%;
+        }
+    }
+
+    p{
+        line-height: 30px;
+        margin-top: 30px;
+    }
+}

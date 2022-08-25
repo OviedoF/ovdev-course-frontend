@@ -1,21 +1,41 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+:root{
+  --color-d: #1c1c1c;
+  --color-ld: #333333;
+  --color-md: #858585;
+  --color-ll: #706C61;
+  --color-l: #a4a4a4;
+  --color-vl: #ececec;
 }
 
-a {
+body{
+  background-color: var(--color-d);
+  color: var(--color-vl);
+  font-family: 'Ubuntu', sans-serif !important;
+}
+
+main{
+  padding: 70px 12% 0px;
+  box-sizing: border-box;
+}
+
+a{
   color: inherit;
   text-decoration: none;
 }
 
-* {
+.markdown_editor{
+  height: 100vh;
+  width: 60vw;
+  background: var(--color-d);
+  padding: 40px;
+  overflow: scroll;
+  overflow-x: hidden;
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -23,4 +43,4 @@ a {
     color: white;
     background: black;
   }
-}
+} */

@@ -1,0 +1,13 @@
+.nav{
+    width: 50%;
+    ul{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 20px;
+
+        li{
+            cursor: pointer;
+        }
+    }
+}

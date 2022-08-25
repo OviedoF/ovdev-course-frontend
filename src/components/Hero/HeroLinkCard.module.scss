@@ -1,0 +1,25 @@
+.card{
+    width: 32%;
+    height: 47%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-ld);
+    cursor: pointer;
+    transition: all .3s;
+    position: relative;
+
+    &:hover{
+        background-color: var(--color-md);
+    }
+
+    .link_icon{
+        height: 20%;
+        margin-bottom: 20px;
+    }
+
+    h2{
+        font-size: 18px;
+    }
+}

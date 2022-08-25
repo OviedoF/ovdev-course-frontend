@@ -1,0 +1,23 @@
+@keyframes appearFromTopRight{
+    0%{
+        clip-path: polygon(100% 0, 100% 0, 100% 8%, 100% 8%);
+    }
+
+    50%{
+        clip-path: polygon(99% 0, 100% 0, 100% 100%, 99% 100%);
+    }
+
+    100%{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes appearFromTop{
+    0%{
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    100%{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
