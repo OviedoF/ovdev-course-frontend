@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from './HeroLinkCard.module.scss';
 import Link from "next/link";
 
-const HeroLinkCard = ({linkInfo, index}) => {
+const HeroLinkCard = ({linkInfo, index, redirect, action}) => {
     const velocities = {
         3: 0.2,
         4: 0.4,
@@ -11,7 +11,7 @@ const HeroLinkCard = ({linkInfo, index}) => {
     };
 
   return (
-    <Link href='/course/intro-webdev'>
+    <Link href={redirect ? redirect : ''}>
         <div className={styles.card}>
             <FontAwesomeIcon icon={linkInfo.icon} className={styles.link_icon} />
             <h2>{linkInfo.name}</h2>

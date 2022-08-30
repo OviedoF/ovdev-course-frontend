@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AddCourseForm from '../../src/components/admin/AddCourseForm';
 import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import IsLoading from '../../src/components/screens/IsLoading';
 import DoneMessage from '../../src/components/screens/DoneMessage';
 import ErrorMessage from '../../src/components/screens/ErrorMessage';
 
 export default function AddCourse() {
   const screensActive = useSelector(state => state.screensActive);
+  const router = useRouter();
+  const user = useSelector(state => state.auth);
+
+  useEffect(() => {
+    if(!user || !user.roles.includes('admin')) router.replace('/');
+  }, []);
 
   return (
     <main>

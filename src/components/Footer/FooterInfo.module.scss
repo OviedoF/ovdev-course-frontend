@@ -1,0 +1,29 @@
+.info{
+    display: flex;
+
+    div{
+        width: 25%;
+        box-sizing: border-box;
+        font-size: 16px;
+
+        &.about{
+            width: 50%;
+
+            p{
+                line-height: 20px;
+            }
+        }
+
+        h3{
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: var(--color-vl);
+        }
+
+        ul{
+            li{
+                margin-top: 10px;
+            }
+        }
+    }
+}

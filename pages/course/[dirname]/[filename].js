@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import TopicsContainer from '../../../src/components/PageCourse/TopicsContainer';
 import styles from './index.module.scss';
 import Content from '../../../src/components/PageCourse/Content';
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function TopicPage({course, topic}) {
-    console.log(course)
-    console.log(topic)
+    const {user} = useSelector(state => state.auth);
+
+    useEffect(() => {
+        axios.post(`http://localhost:4000/api/user/${user._id}/addCourse`, {
+            courseId: course._id,
+            lastTopicId: topic.topic._id
+        })
+    }, [course, topic, user]);
 
   return (
     <main>

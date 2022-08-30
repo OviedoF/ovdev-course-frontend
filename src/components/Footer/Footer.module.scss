@@ -1,0 +1,21 @@
+.footer{
+    margin-top: 150px;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 12%;
+    color: var(--color-md);
+    justify-content: space-evenly;
+
+    
+
+    hr{
+        width: 100%;
+        background: none;
+        border: none;
+        height: 2px;
+        background-color: var(--color-ld);
+    }
+
+
+}

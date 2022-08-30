@@ -5,37 +5,45 @@ import {
   faHeart,
   faComments,
   faHeartCirclePlus,
-  faUserAltSlash,
+  faUser,
   faClipboardQuestion,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HeroLinkCard from "./HeroLinkCard";
+import { useSelector } from "react-redux";
 
 const HeroLinks = () => {
+  const {user} = useSelector(state => state.auth);
+
   const items = [
     {
       name: "Mis cursos",
       icon: faBookOpen,
+      redirect: `/user/${user._id}/courses`,
     },
     {
       name: "Mis favoritos",
       icon: faHeart,
+      redirect: `/user/${user._id}/favorites`,
     },
     {
       name: "Foro y consultas",
       icon: faComments,
+      redirect: "/forum",
     },
     {
       name: "Necesito ayuda",
       icon: faClipboardQuestion,
+      redirect: "/help",
     },
     {
-      name: "Desconectarse",
-      icon: faUserAltSlash,
+      name: "Mi perfil",
+      icon: faUser,
+      redirect: "/my-profile",
     },
     {
       name: "Donar :)",
       icon: faHeartCirclePlus,
+      redirect: "/donate",
     },
   ];
 
@@ -43,7 +51,12 @@ const HeroLinks = () => {
     <div className={styles.container}>
       {items.map((el, index) => {
         return (
-          <HeroLinkCard linkInfo={el} index={index >= 3 ? index : index + 3} key={el.name}/>
+          <HeroLinkCard
+            linkInfo={el}
+            index={index >= 3 ? index : index + 3}
+            key={el.name}
+            redirect={el.redirect}
+          />
         );
       })}
     </div>

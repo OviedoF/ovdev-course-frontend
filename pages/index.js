@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import AboutSection from '../src/components/About/AboutSection';
+import CoursesContainer from '../src/components/Courses/CoursesContainer';
 import Hero from '../src/components/Hero/Hero';
 import axios from 'axios';
 import IsLoading from '../src/components/screens/IsLoading';
@@ -33,7 +33,7 @@ export default function Home({courses}) {
 
       <Hero setError={setError}/>
 
-      {auth ? <AboutSection courses={courses}/> : <></>}
+      {auth ? <CoursesContainer courses={courses} text/> : <></>}
     </main>
   )
 };

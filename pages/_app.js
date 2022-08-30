@@ -7,6 +7,7 @@ import '../styles/MarkDownEditor.css';
 import '../styles/library.scss';
 import '../styles/animations.scss';
 import store from '../src/store/index';
+import Footer from '../src/components/Footer/Footer'
 
 function MyApp({ Component, pageProps }) {
   return <>
@@ -21,9 +22,7 @@ function MyApp({ Component, pageProps }) {
 
       <Component {...pageProps} />
         
-      <footer>
-          
-      </footer>
+      <Footer />
       
     </Provider>
     

@@ -1,0 +1,33 @@
+.card{
+    width: 32%;
+    height: 40vh;
+    cursor: pointer;
+    border-radius: 50%;
+
+    .img_container{
+        position: relative;
+        width: 100%;
+        height: 50%;
+        
+    }
+
+    .text{
+        width: 100%;
+        padding: 10px 0px;
+        box-sizing: border-box;
+        font-size: 16px;
+
+        h3{
+            font-size: 27px;
+        }
+        
+        p{
+            margin-top: 10px;
+        }
+
+        span{
+            font-style: italic;
+            text-transform: lowercase;
+        }
+    }
+}
