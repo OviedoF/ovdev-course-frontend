@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {activeScreen, desactiveScreen} from '../../actions/screensActive.actions';
-
 
 export default function AddCourseForm() {
     const [form, setForm] = useState({});
@@ -41,14 +40,18 @@ export default function AddCourseForm() {
 
         console.log(form.images);
 
-        await axios.post(`http://localhost:4000/api/courses`, formData)
+        await axios.post(`http://localhost:4000/api/courses`, formData, {
+            headers: {
+                'x-access-token': localStorage.getItem('x-access')
+            }
+        })
             .then(res => {
                 console.log(res), 
                 dispatch( desactiveScreen('isLoading') );
                 dispatch( activeScreen('successMessage') );
             })
             .catch(err => {
-                console.error(err), 
+                console.log(err), 
                 dispatch( desactiveScreen('isLoading') );
                 dispatch( activeScreen('errorMessage') );
             });

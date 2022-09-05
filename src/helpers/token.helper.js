@@ -1,6 +1,8 @@
 import axios from "axios";
 
 export const getToken = () => {
+    if((Math.round(new Date().getTime()/1000) - localStorage.getItem('access-timestamp') > 86400) ) return false;
+
     const token = localStorage.getItem('x-access');
 
     if(!token) return false;

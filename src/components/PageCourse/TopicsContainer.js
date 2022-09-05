@@ -7,7 +7,6 @@ export default function TopicsContainer({topics, dirname, minimalize}) {
   const router = useRouter();
 
   const url = !minimalize ? `${dirname}/` : `/course${router.basePath}/${dirname}/`;
-  console.log(url);
 
   return (
     <div className={styles.topicsContainer}>

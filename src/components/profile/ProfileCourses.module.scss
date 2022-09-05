@@ -1,13 +1,24 @@
 .card{
     width: 32%;
-    height: 40vh;
+    height: 30vh;
     cursor: pointer;
-    border-radius: 50%;
+    position: relative;
+
+    &::after{
+        content: "";
+        height: 100%;
+        width: 3px;
+        position: absolute;
+        background-color: red;
+        left: -20px;
+        top: 0;
+        z-index: 999;
+    }
 
     .img_container{
         position: relative;
         width: 100%;
-        height: 50%;
+        height: 70%;
         
     }
 

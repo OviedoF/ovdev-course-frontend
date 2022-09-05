@@ -7,9 +7,11 @@ const Courses = ({ coursesInProcess }) => {
     <main>
         <div className="container">
             {coursesInProcess.map((course) => {
-            return (
-                <ProfileCourses course={course} key={course.lastTopic._id}/>
-            );
+              if(course.lastTopic) {
+                return (
+                  <ProfileCourses course={course} key={course.lastTopic._id}/>
+                );
+              }
             })}
         </div>
 

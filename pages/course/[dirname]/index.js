@@ -5,6 +5,7 @@ import TopicsContainer from '../../../src/components/PageCourse/TopicsContainer'
 import Content from '../../../src/components/PageCourse/Content';
 
 export default function CoursePage({course}) {
+    console.log(course);
 
   return (
     <main>

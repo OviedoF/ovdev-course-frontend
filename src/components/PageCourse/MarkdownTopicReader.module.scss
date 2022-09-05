@@ -21,6 +21,14 @@
             cursor: pointer;
         }
     }
+
+    .fav_button_container{
+        position: absolute;
+        top: 0px;
+        right: 0;
+        cursor: pointer;
+        font-size: 30px;
+    }
 }
 
 .container{

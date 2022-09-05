@@ -18,7 +18,7 @@ export default function Content({course, topic}) {
 
         {course 
         ? <CoursePresentation course={course}/> 
-        : <MarkdownTopicReader content={content} setContent={setContent} />
+        : <MarkdownTopicReader content={content} setContent={setContent} id={topic.topic._id}/>
         }
     </div>
   )

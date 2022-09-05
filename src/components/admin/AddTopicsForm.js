@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import AddTopicRadio from './AddTopicRadio'
 import styles from './AddTopicsForm.module.scss';
@@ -23,7 +23,11 @@ export default function AddTopicsForm({coursesNames, setError}) {
         dispatch( desactiveScreen('successMessage') );
         dispatch( desactiveScreen('errorMessage') );
 
-        await axios.post(`http://localhost:4000/api/topics`, form)
+        await axios.post(`http://localhost:4000/api/topics`, form, {
+            headers: {
+                'x-access-token': localStorage.getItem('x-access')
+            }
+        })
             .then(res => {
                 console.log(res), 
                 dispatch( desactiveScreen('isLoading') );
