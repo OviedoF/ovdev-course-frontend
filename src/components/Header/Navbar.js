@@ -21,14 +21,6 @@ const Navbar = () => {
                     </Link>
                 </li>
 
-                <li>
-                    <Link href={'/course/intro-webdev'}>
-                        <div className="">
-                        <FontAwesomeIcon icon={faList} style={{marginRight: "10px", height: "18px"}}/> Cursos
-                        </div>
-                    </Link>
-                </li>
-
                 { auth.user 
                     ?  
                     <li onClick={(e) => dispatch( logout() )}>

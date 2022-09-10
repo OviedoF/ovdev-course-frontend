@@ -38,7 +38,7 @@ const Courses = ({ coursesInProcess }) => {
 
 export async function getServerSideProps(context) {
   const coursesInProcess = await axios(
-    `http://localhost:4000/api/user/${context.params.id}/getCoursesInProcess`
+    `https://ovdevcourses-api.herokuapp.com/api/user/${context.params.id}/getCoursesInProcess`
   )
     .then((response) => response.data)
     .catch((err) => console.log(err));

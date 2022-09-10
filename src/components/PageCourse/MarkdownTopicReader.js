@@ -30,14 +30,14 @@ function MarkdownTopicReader({content, setContent, id}) {
   }, [favs, id]);
   
   const handleFavorite = () => {
-    axios.post(`http://localhost:4000/api/user/${user._id}/handlefav/${id}`)
-      .then(res => axios.get(`http://localhost:4000/api/user/${user._id}/getfavs`))
+    axios.post(`https://ovdevcourses-api.herokuapp.com/api/user/${user._id}/handlefav/${id}`)
+      .then(res => axios.get(`https://ovdevcourses-api.herokuapp.com/api/user/${user._id}/getfavs`))
       .then(res => setFavs(res.data.favs))
       .catch(err => console.log(err));
   }
 
   const handleDelete = (e) => {
-    axios.delete(`http://localhost:4000/api/topics/${id}`)
+    axios.delete(`https://ovdevcourses-api.herokuapp.com/api/topics/${id}`)
       .then(res => {
         console.log(res.data);
         router.back();

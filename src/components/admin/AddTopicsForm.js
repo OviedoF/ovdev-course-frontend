@@ -23,7 +23,7 @@ export default function AddTopicsForm({coursesNames, setError}) {
         dispatch( desactiveScreen('successMessage') );
         dispatch( desactiveScreen('errorMessage') );
 
-        await axios.post(`http://localhost:4000/api/topics`, form, {
+        await axios.post(`https://ovdevcourses-api.herokuapp.com/api/topics`, form, {
             headers: {
                 'x-access-token': localStorage.getItem('x-access')
             }

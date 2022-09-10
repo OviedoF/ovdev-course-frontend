@@ -20,7 +20,7 @@ export default function CoursePage({course}) {
 }
 
 export async function getServerSideProps(context){
-    const course = await axios(`http://localhost:4000/api/courses/${context.params.dirname}`)
+    const course = await axios(`https://ovdevcourses-api.herokuapp.com/api/courses/${context.params.dirname}`)
         .then(response => response.data)
         .catch(err => console.log(err));
    

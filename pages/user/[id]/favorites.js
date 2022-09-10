@@ -66,7 +66,7 @@ const Favorites = ({topicsFavs}) => {
 
 export async function getServerSideProps(context) {
     const topicsFavs = await axios(
-      `http://localhost:4000/api/user/${context.params.id}/getfavs/complete`
+      `https://ovdevcourses-api.herokuapp.com/api/user/${context.params.id}/getfavs/complete`
     )
       .then((response) => response.data)
       .catch((err) => console.log(err));

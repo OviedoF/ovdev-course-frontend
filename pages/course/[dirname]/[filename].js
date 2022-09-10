@@ -9,7 +9,7 @@ export default function TopicPage({course, topic}) {
     const {user} = useSelector(state => state.auth);
 
     useEffect(() => {
-        axios.post(`http://localhost:4000/api/user/${user._id}/addCourse`, {
+        axios.post(`https://ovdevcourses-api.herokuapp.com/api/user/${user._id}/addCourse`, {
             courseId: course._id,
             lastTopicId: topic.topic._id
         })
