@@ -17,27 +17,19 @@
     p{
         line-height: 25px;
     }
+}
 
-    .buttons{
-        width: 50%;
-        display: flex;
-        justify-content: space-between;
-        height: 40px;
+@media screen and (max-width: 600px){
+    .presentation{
+        width: 100%;
+        justify-content: space-evenly;
 
-        button{
-            background: none;
-            border: none;
-            width: 45%;
-            border-radius: 20px;
-            background-color: var(--color-vl);
-            font-size: 16px;
-            cursor: pointer;
-            transition: all .4s;
+        h1{
+            font-size: 30px;
+        }
 
-            &:hover{
-                background-color: var(--color-ld);
-                color: var(--color-vl);
-            }
+        h2{
+            font-size: 25px;
         }
     }
 }

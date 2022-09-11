@@ -26,3 +26,17 @@
         margin-top: 30px;
     }
 }
+
+@media screen and (max-width: 600px){
+    .markdown{
+        width: 100%;
+
+        .image_container{
+            width: 100%;
+        }
+
+        .description{
+            width: 100%;
+        }
+    }
+}

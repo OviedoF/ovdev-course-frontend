@@ -58,6 +58,12 @@ const Favorites = ({topicsFavs}) => {
                     height: 50%;
                     position: relative
                 }
+
+                @media screen and (max-width: 600px){
+                    .card{
+                        width: 100%;
+                    }
+                }
             `}</style>
         </main>
     );

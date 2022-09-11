@@ -42,6 +42,12 @@
     }    
 }
 
+@media screen and (max-width: 600px){
+    .form_design{
+        width: 100%;
+    }
+}
+
 .no-render{
     display: none;
 }

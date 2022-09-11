@@ -21,7 +21,6 @@ const Courses = ({ coursesInProcess }) => {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                height: 55vh;
             }    
 
             .container{
@@ -30,6 +29,7 @@ const Courses = ({ coursesInProcess }) => {
                 margin-top: 40px;
                 justify-content: space-evenly;
                 flex-direction: row-reverse;
+                flex-wrap: wrap;
             }
         `}</style>
     </main>

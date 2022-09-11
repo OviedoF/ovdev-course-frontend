@@ -42,3 +42,9 @@
         margin-bottom: 30px;
     }
 }
+
+@media screen and (max-width: 600px){
+    .course_card{
+        width: 95%;
+    }
+}

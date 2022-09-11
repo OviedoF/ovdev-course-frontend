@@ -17,5 +17,12 @@
         background-color: var(--color-ld);
     }
 
+}
 
+@media screen and (max-width: 600px){
+    .footer{
+        height: auto;
+        margin-top: 150px;
+        flex-direction: column;
+    }
 }

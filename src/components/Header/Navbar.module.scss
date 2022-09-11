@@ -11,3 +11,23 @@
         }
     }
 }
+
+@media screen and (max-width: 600px){
+    .nav{
+        ul{
+            justify-content: flex-end;
+
+            li{
+                margin-right: 10px;
+
+                &:last-child{
+                    margin-right: 0px;
+                }
+                
+                p{
+                    display: none;
+                }
+            }
+        }
+    }
+}

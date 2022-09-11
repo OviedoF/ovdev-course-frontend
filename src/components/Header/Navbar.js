@@ -16,7 +16,7 @@ const Navbar = () => {
                 <li>
                     <Link href={'/'}>
                         <div className="">
-                            <FontAwesomeIcon icon={faHouse} style={{marginRight: "10px", height: "18px"}}/> Inicio  
+                            <FontAwesomeIcon icon={faHouse} style={{marginRight: "10px", height: "18px"}}/> <p>Inicio</p>
                         </div>
                     </Link>
                 </li>
@@ -28,13 +28,13 @@ const Navbar = () => {
                         icon={faUserAltSlash} 
                         style={{marginRight: "10px", height: "18px"}} 
                         /> 
-                            Desconectarse
+                            <p>Desconectarse</p>
                     </li>
                     :  
                     <li><FontAwesomeIcon 
                         icon={faUser} 
                         style={{marginRight: "10px", height: "18px"}} 
-                    /> Conectarse</li>
+                    /> <p>Conectarse</p></li>
                 }
 
                 {
@@ -42,9 +42,9 @@ const Navbar = () => {
                     ? 
                     <li>
                         <Link href={'/admin'}>
-                            <div className="">
+                            <div className={styles.admin_nav_button}>
                             <FontAwesomeIcon icon={faBarsProgress} style={{marginRight: "10px", height: "18px"}}/> 
-                            Admin
+                            <p>Admin</p>
                             </div>
                         </Link>
                     </li>

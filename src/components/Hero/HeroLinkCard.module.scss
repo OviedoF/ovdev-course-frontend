@@ -32,3 +32,10 @@
         font-size: 18px;
     }
 }
+
+@media screen and (max-width: 600px){
+    .card{
+        width: 49%;
+        height: 32%;
+    }
+}

@@ -20,3 +20,13 @@
     }
 }
 
+
+@media screen and (max-width: 600px){
+    .section{
+        h2{
+            margin-top: 70px;
+            margin-bottom: 0px;
+            font-size: 30px;
+        }
+    }
+}

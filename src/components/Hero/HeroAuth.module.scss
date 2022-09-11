@@ -41,3 +41,29 @@
         }
     }
 }
+
+@media screen and (max-width: 600px){
+    .container{
+        width: 100%;
+        flex-direction: column-reverse;
+
+        .selection{
+            position: relative;
+            width: 100%;
+            height: 10%;
+            flex-direction: row;
+            right: 0;
+            border: none;
+
+            .selection_option{
+                height: 100%;
+                width: 50%;
+
+                &:nth-child(2){
+                    border: none;
+                }
+                
+            }
+        }
+    }
+}

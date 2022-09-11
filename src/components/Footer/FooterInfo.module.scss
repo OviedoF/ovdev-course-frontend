@@ -40,3 +40,33 @@
         }
     }
 }
+
+@media screen and (max-width: 600px){
+    .info{
+        flex-direction: column;
+
+        div{
+            width: 100%;
+
+            &.about{
+                margin-bottom: 15px;
+                width: 100%;
+            }
+
+            ul{
+                li{
+                    &:not(:nth-child(1)){
+                        margin-top: 10px;
+                    }
+    
+                    text-align: center;
+                    transition: all .5s;
+    
+                    &:hover{
+                        color: var(--color-vl);
+                    }
+                }
+            }
+        }
+    }
+}
