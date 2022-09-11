@@ -41,9 +41,10 @@ const HeroLinks = () => {
       redirect: "/my-profile",
     },
     {
-      name: "Donar :)",
+      name: "Conóceme :)",
       icon: faHeartCirclePlus,
-      redirect: "/donate",
+      redirect: "https://ovdev-portfolio.vercel.app/",
+      blank: true
     },
   ];
 
@@ -56,6 +57,7 @@ const HeroLinks = () => {
             index={index >= 3 ? index : index + 3}
             key={el.name}
             redirect={el.redirect}
+            blank={el.blank}
           />
         );
       })}

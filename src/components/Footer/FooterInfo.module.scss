@@ -2,9 +2,12 @@
     display: flex;
 
     div{
-        width: 25%;
+        width: 50%;
         box-sizing: border-box;
         font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         &.about{
             width: 50%;
@@ -16,13 +19,23 @@
 
         h3{
             font-size: 25px;
+            text-align: center;
             margin-bottom: 20px;
             color: var(--color-vl);
         }
 
         ul{
             li{
-                margin-top: 10px;
+                &:not(:nth-child(1)){
+                    margin-top: 10px;
+                }
+
+                text-align: center;
+                transition: all .5s;
+
+                &:hover{
+                    color: var(--color-vl);
+                }
             }
         }
     }
