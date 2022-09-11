@@ -36,9 +36,9 @@ const HeroLinks = () => {
       redirect: "/help",
     },
     {
-      name: "Mi perfil",
+      name: "Clases",
       icon: faUser,
-      redirect: "/my-profile",
+      redirect: "/class",
     },
     {
       name: "Conóceme :)",
