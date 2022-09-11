@@ -40,7 +40,7 @@ export default function AddCourseForm() {
 
         console.log(form.images);
 
-        await axios.post(`https://ovdevcourses-api.herokuapp.com/api/courses`, formData, {
+        await axios.post(`${process.env.NEXT_PUBLIC_API_HOST}/api/courses`, formData, {
             headers: {
                 'x-access-token': localStorage.getItem('x-access')
             }

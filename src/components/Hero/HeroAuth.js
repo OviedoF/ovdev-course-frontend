@@ -3,7 +3,7 @@ import styles from "./HeroAuth.module.scss";
 import LoginForm from "../Auth/LoginForm";
 import RegisterForm from "../Auth/RegisterForm";
 
-export default function HeroAuth({ setError }) {
+export default function HeroAuth() {
   const [activeRegisterForm, setActiveRegisterForm] = useState(true);
 
   return (
@@ -24,7 +24,7 @@ export default function HeroAuth({ setError }) {
         </div>
       </div>
 
-      {activeRegisterForm ? <RegisterForm /> : <LoginForm />}
+      {activeRegisterForm ? <RegisterForm setActiveRegisterForm={setActiveRegisterForm}/> : <LoginForm />}
     </div>
   );
 }

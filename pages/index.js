@@ -23,7 +23,7 @@ export default function Home({courses}) {
     };
 
     getUser();
-  }, []);
+  }, [dispatch]);
 
   return (
     <main>
@@ -39,7 +39,7 @@ export default function Home({courses}) {
 };
 
 export async function getServerSideProps(){
-  const courses = await axios(`https://ovdevcourses-api.herokuapp.com/api/courses`)
+  const courses = await axios.get(`${process.env.API_HOST}/api/courses`)
       .then(response => response.data)
       .catch(err => console.log(err));
  

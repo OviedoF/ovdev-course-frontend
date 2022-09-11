@@ -41,19 +41,18 @@ const LoginForm = () => {
     dispatch(desactiveScreen("errorMessage"));
 
     await axios
-      .post(`https://ovdevcourses-api.herokuapp.com/api/auth/signin`, form)
-      .then((res) => {
-        console.log(res), localStorage.setItem("x-access", res.data.token);
-        localStorage.setItem("access-timestamp", Math.round(new Date().getTime()/1000));
-        handleLogin();
-        dispatch(desactiveScreen("isLoading"));
-        dispatch(activeScreen("successMessage"));
-      })
-      .catch((err) => {
-        setError(err.response.data.message),
+      .post(`${process.env.NEXT_PUBLIC_API_HOST}/api/auth/signin`, form)
+        .then((res) => {
+          console.log(res), localStorage.setItem("x-access", res.data.token);
+          localStorage.setItem("access-timestamp", Math.round(new Date().getTime()/1000));
+          handleLogin();
           dispatch(desactiveScreen("isLoading"));
-        dispatch(activeScreen("errorMessage"));
-      });
+          dispatch(activeScreen("successMessage"));
+        })
+        .catch((err) => {
+          dispatch(desactiveScreen("isLoading"));
+          dispatch(activeScreen("errorMessage", err.response.data.message));
+        });
   };
 
   return (

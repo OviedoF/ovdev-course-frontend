@@ -18,7 +18,7 @@ function MarkdownTopicReader({content, setContent, id}) {
   const router = useRouter();
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/api/user/${user._id}/getfavs`)
+    axios.get(`${process.env.NEXT_PUBLIC_API_HOST}/api/user/${user._id}/getfavs`)
       .then(res => setFavs(res.data.favs))
       .catch(err => console.log(err));
   }, []);
@@ -30,14 +30,14 @@ function MarkdownTopicReader({content, setContent, id}) {
   }, [favs, id]);
   
   const handleFavorite = () => {
-    axios.post(`https://ovdevcourses-api.herokuapp.com/api/user/${user._id}/handlefav/${id}`)
-      .then(res => axios.get(`https://ovdevcourses-api.herokuapp.com/api/user/${user._id}/getfavs`))
+    axios.post(`${process.env.NEXT_PUBLIC_API_HOST}/api/user/${user._id}/handlefav/${id}`)
+      .then(res => axios.get(`${process.env.NEXT_PUBLIC_API_HOST}/api/user/${user._id}/getfavs`))
       .then(res => setFavs(res.data.favs))
       .catch(err => console.log(err));
   }
 
   const handleDelete = (e) => {
-    axios.delete(`https://ovdevcourses-api.herokuapp.com/api/topics/${id}`)
+    axios.delete(`${process.env.NEXT_PUBLIC_API_HOST}/api/topics/${id}`)
       .then(res => {
         console.log(res.data);
         router.back();

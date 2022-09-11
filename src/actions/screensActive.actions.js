@@ -1,8 +1,9 @@
 import { ACTIVE_SCREEN, DESACTIVE_SCREEN } from "../types";
 
-export const activeScreen = (screen) => ({
+export const activeScreen = (screen, message) => ({
     type: ACTIVE_SCREEN,
-    payload: screen
+    payload: screen,
+    message: message
 });
 
 export const desactiveScreen = (screen) => ({

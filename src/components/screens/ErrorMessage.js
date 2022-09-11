@@ -1,10 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const ErrorMessage = ({message = 'error indefinido'}) => {
+const ErrorMessage = () => {
+    const {message} = useSelector(state => state.screensActive);
+
     return (
         <div>
             <h2>¡Ha ocurrido un error!</h2>
-            <p>{message}</p>
+            <p>{message ? message : 'error indefinido'}</p>
 
             <style jsx>{`
                 div{

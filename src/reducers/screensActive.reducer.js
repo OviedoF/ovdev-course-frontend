@@ -3,7 +3,8 @@ import { ACTIVE_SCREEN, DESACTIVE_SCREEN } from "../types";
 const initialState = {
     isLoading: false,
     errorMessage: false,
-    successMessage: false
+    successMessage: false,
+    message: ''
 }
 
 export default function screensActiveReducer(state = initialState, action){
@@ -11,7 +12,8 @@ export default function screensActiveReducer(state = initialState, action){
         case ACTIVE_SCREEN:
             return {
                 ...state,
-                [action.payload]: true
+                [action.payload]: true,
+                message: action.message
             }
         case DESACTIVE_SCREEN:
             return {

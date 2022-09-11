@@ -9,7 +9,7 @@ export default function TopicPage({course, topic}) {
     const {user} = useSelector(state => state.auth);
 
     useEffect(() => {
-        axios.post(`https://ovdevcourses-api.herokuapp.com/api/user/${user._id}/addCourse`, {
+        axios.post(`${process.env.API_HOST}/api/user/${user._id}/addCourse`, {
             courseId: course._id,
             lastTopicId: topic.topic._id
         })
@@ -27,11 +27,11 @@ export default function TopicPage({course, topic}) {
 };
 
 export async function getServerSideProps(context){
-    const course = await axios(`http://localhost:4000/api/courses/${context.params.dirname}`)
+    const course = await axios(`${process.env.API_HOST}/api/courses/${context.params.dirname}`)
         .then(response => response.data)
         .catch(err => console.log(err));
     
-    const topic = await axios(`http://localhost:4000/api/topics/${context.params.dirname}/${context.params.filename}`)
+    const topic = await axios(`${process.env.API_HOST}/api/topics/${context.params.dirname}/${context.params.filename}`)
         .then(response => response.data)
         .catch(err => console.log(err));
    

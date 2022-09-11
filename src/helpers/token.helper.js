@@ -15,7 +15,7 @@ export const getUserByToken = async () => {
 
     const token = getToken();
 
-    const data = await axios.post('https://ovdevcourses-api.herokuapp.com/api/auth/signin/whoiam', {
+    const data = await axios.post(`${process.env.NEXT_PUBLIC_API_HOST}/api/auth/signin/whoiam`, {
         token
     })
         .then(res => res.data)

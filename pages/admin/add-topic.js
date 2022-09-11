@@ -40,7 +40,7 @@ export default function AddTopic({courses}) {
 }
 
 export async function getServerSideProps(){
-    const courses = await axios(`https://ovdevcourses-api.herokuapp.com/api/courses`)
+    const courses = await axios(`${process.env.API_HOST}/api/courses`)
         .then(response => response.data)
         .catch(err => console.log(err));
    
