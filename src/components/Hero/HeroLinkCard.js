@@ -11,14 +11,16 @@ const HeroLinkCard = ({linkInfo, index, redirect, action, blank}) => {
     };
 
   return (
-    blank ? 
+    blank 
+    ? 
     <a href={redirect ? redirect : ''} target='_blank' rel="noreferrer" className={styles.card}>
         <div className={styles.blank_div}>
             <FontAwesomeIcon icon={linkInfo.icon} className={styles.link_icon} />
             <h2>{linkInfo.name}</h2>
+        </div>
 
-            <style jsx>{`
-                div{
+        <style jsx>{`
+                a{
                     animation: appear ${velocities[index]}s ease-in;
                 }
 
@@ -31,8 +33,7 @@ const HeroLinkCard = ({linkInfo, index, redirect, action, blank}) => {
                         right: 0;
                     }
                 }
-            `}</style>
-        </div>
+        `}</style>
     </a>
     :
     <Link href={redirect ? redirect : ''}>
