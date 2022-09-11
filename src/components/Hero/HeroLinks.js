@@ -6,6 +6,7 @@ import {
   faComments,
   faHeartCirclePlus,
   faUser,
+  faVideo,
   faClipboardQuestion,
 } from "@fortawesome/free-solid-svg-icons";
 import HeroLinkCard from "./HeroLinkCard";
@@ -37,7 +38,7 @@ const HeroLinks = () => {
     },
     {
       name: "Clases",
-      icon: faUser,
+      icon: faVideo,
       redirect: "/class",
     },
     {
