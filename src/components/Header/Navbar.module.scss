@@ -8,7 +8,13 @@
 
         li{
             cursor: pointer;
+            display: flex;
+
+            div{
+                display: flex;
+            }
         }
+        
     }
 }
 

@@ -16,7 +16,8 @@ const Navbar = () => {
                 <li>
                     <Link href={'/'}>
                         <div className="">
-                            <FontAwesomeIcon icon={faHouse} style={{marginRight: "10px", height: "18px"}}/> <p>Inicio</p>
+                            <FontAwesomeIcon icon={faHouse} style={{marginRight: "10px", height: "18px"}}/> 
+                            <p>Inicio</p>
                         </div>
                     </Link>
                 </li>
