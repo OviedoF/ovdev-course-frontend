@@ -23,6 +23,27 @@ body{
   font-family: 'Ubuntu', sans-serif !important;
 }
 
+body::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+body::-webkit-scrollbar:vertical {
+  width:7px;
+}
+
+body::-webkit-scrollbar-button:increment,body::-webkit-scrollbar-button {
+  display: none;
+} 
+
+body::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-ll);
+  border-radius: 50px;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
