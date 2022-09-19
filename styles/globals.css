@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+/* 
+  --color-d: #152024;
+  --color-ld: #162124;
+  --color-md: #9C6240 ;
+  --color-ll: #606B6E;
+  --color-l: #333D40;
+  --color-vl: #ececec;
+*/
 
 :root{
-  --color-d: #1c1c1c;
-  --color-ld: #333333;
-  --color-md: #858585;
-  --color-ll: #706C61;
-  --color-l: #a4a4a4;
+  --color-d: #111A29;
+  --color-ld:  #192230;
+  --color-md: #2B3444 ;
+  --color-ll: #5A616B;
+  --color-l: #636972;
   --color-vl: #ececec;
 }
 
@@ -13,6 +21,13 @@ body{
   background-color: var(--color-d);
   color: var(--color-vl);
   font-family: 'Ubuntu', sans-serif !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: all 100000000s ease-in-out 0s;
 }
 
 main{

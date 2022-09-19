@@ -1,14 +1,20 @@
 .form_design {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     width: 70%;
     height: 100%;
-    background-color: var(--color-ld);
     display: flex;
     flex-direction: column;
     padding: 10px 30px;
     box-sizing: border-box;
     position: relative;
     align-items: center;
+    animation: appearFromTopRight .5s ease-IN;
+
+    z-index: 2;
+    background: rgba( 133, 133, 133, 0.04 );
+    box-shadow: 0 8px 32px 0 #33333360;
+    backdrop-filter: blur( 11px );
+    -webkit-backdrop-filter: blur( 11px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 
     h3{
         font-size: 30px;
@@ -25,11 +31,39 @@
     
     button[type="submit"]{
         position: absolute;
-        bottom: 20px;
+        bottom: 10px;
         font-size: 18px;
         height: 40px;
         width: 50%;
         cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 1s;
+        border-bottom: none;
+
+        &:hover{
+            opacity: 1;
+        }
+
+        &::before{
+            content: "";
+            width: 10%;
+            height: 1px;
+            border-radius: 10px;
+            left: calc(50% - 10px);
+            bottom: 100%;
+            background-color: var(--color-md);
+            opacity: 0;
+            transition: all 1s;
+            position: absolute;
+        }
+
+        &:hover::before{
+            opacity: 1;
+            background-color: var(--color-vl);
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
     }
     
     label{
@@ -45,9 +79,23 @@
 @media screen and (max-width: 600px){
     .form_design{
         width: 100%;
+
+        &#auth_form_small{
+            height: 70%;
+        }
     }
 }
 
 .no-render{
     display: none;
+}
+
+@keyframes jumping{
+    0%{
+        transform: translateY(-10px);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
 }

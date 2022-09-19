@@ -21,3 +21,23 @@
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
 }
+
+@keyframes appearFromBottom{
+    0%{
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    }
+
+    100%{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes jumping{
+    0%{
+        transform: translateY(-10px);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}

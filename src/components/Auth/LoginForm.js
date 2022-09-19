@@ -57,10 +57,9 @@ const LoginForm = () => {
 
   return (
     <form
-      action=""
+      id="auth_form_small"
       className="form_design appearFromTopAnimation"
       onSubmit={(e) => handleSubmit(e)}
-      style={clipPathAnimations.appearFromTopRight}
     >
 
       <label htmlFor="email">Ingrese su correo electrónico</label>

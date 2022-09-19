@@ -2,41 +2,72 @@
     width: 50%;
     height: 70%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    flex-direction: column-reverse;
+
+    &::after{
+        content: "";
+        width: 100px;
+        height: 100px;
+        background-color: var(--color-md);
+        position: absolute;
+        border-radius: 20px;
+        top: 0px;
+        left: 50px;
+        z-index: -1;
+        box-shadow: 0 8px 12px 0 #33333360;
+    }
+
+    &::before{
+        content: "";
+        width: 100px;
+        height: 100px;
+        background-color: var(--color-md);
+        position: absolute;
+        border-radius: 20px;
+        bottom: 0px;
+        right: 50px;
+        z-index: -1;
+        box-shadow: 0 -8px 12px 0 #33333360;
+    }
+
 
     .selection{
         background-color: var(--color-ld);
-        width: 20%;
-        height: 100%;
+        width: 70%;
+        height: 10%;
         border-left: 1px solid var(--color-md);
-        position: absolute;
         z-index: 2;
         right: 10%;
         top: 0;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        right: 0;
+        border: none;
+        
+        z-index: 2;
+        background: rgba( 133, 133, 133, 0.04 );
+        box-shadow: 0 8px 32px 0 #33333360;
+        backdrop-filter: blur( 11px );
+        -webkit-backdrop-filter: blur( 11px );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
 
         .selection_option{
-            height: 50%;
             display: flex;
+            height: 100%;
+            width: 50%;
             align-items: center;
             justify-content: center;
-            background-color: #00000090;
+            background-color: #00000030;
             cursor: pointer;
 
             &:nth-child(2){
-                border-top: 1px solid var(--color-md);
+                border: none;
             }
-
             &.option_active{
                 background-color: var(--color-ld);
-            }
-
-            p{
-                word-wrap: break-word;
-                text-align:center;
-                width: 100%;
             }
         }
     }
@@ -46,6 +77,16 @@
     .container{
         width: 100%;
         flex-direction: column-reverse;
+
+        &::after{
+            top: 50px;
+            left: -20px;
+        }
+    
+        &::before{
+            bottom: 50px;
+            right: -20px;
+        }
 
         .selection{
             position: relative;

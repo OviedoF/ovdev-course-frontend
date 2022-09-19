@@ -43,7 +43,6 @@ const RegisterForm = ({setActiveRegisterForm}) => {
   return (
     <form
       className="form_design"
-      style={clipPathAnimations.appearFromTopRight}
       onSubmit={(e) => handleSubmit(e)}
     >
 
