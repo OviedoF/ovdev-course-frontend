@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import Image from 'next/image';
+import { getUserByToken } from '../src/helpers/token.helper';
+import { useDispatch } from 'react-redux';
+import { login } from '../src/actions/auth.actions';
 
 export default function ErrorPage() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+
+        async function getUser(){
+          const userFinded = await getUserByToken();
+          
+          if(userFinded) await dispatch( login(userFinded) );
+        };
+    
+        getUser();
+    }, [dispatch]);
+
   return (
     <main>
         <Image 

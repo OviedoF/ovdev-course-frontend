@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import ProfileCourses from "../../../src/components/profile/ProfileCourses";
+import { useDispatch } from "react-redux";
+import { getUserByToken } from "../../../src/helpers/token.helper";
+import { login } from "../../../src/actions/auth.actions";
 
 const Courses = ({ coursesInProcess }) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+
+      async function getUser(){
+        const userFinded = await getUserByToken();
+        
+        if(userFinded) await dispatch( login(userFinded) );
+      };
+  
+      getUser();
+  }, [dispatch]);
+
   return (
     <main>
         <div className="container">

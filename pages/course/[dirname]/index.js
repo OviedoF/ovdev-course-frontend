@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './index.module.scss';
 import TopicsContainer from '../../../src/components/PageCourse/TopicsContainer';
 import Content from '../../../src/components/PageCourse/Content';
+import { useDispatch } from 'react-redux';
+import { login } from '../../../src/actions/auth.actions';
+import { getUserByToken } from '../../../src/helpers/token.helper';
 
 export default function CoursePage({course}) {
-    console.log(course);
+    const dispatch = useDispatch();
+    useEffect(() => {
+
+        async function getUser(){
+          const userFinded = await getUserByToken();
+          
+          if(userFinded) await dispatch( login(userFinded) );
+        };
+    
+        getUser();
+    }, [dispatch]);
 
   return (
     <main>
