@@ -7,7 +7,9 @@ import DoneMessage from '../src/components/screens/DoneMessage';
 import ErrorMessage from '../src/components/screens/ErrorMessage';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserByToken } from '../src/helpers/token.helper';
-import {login } from '../src/actions/auth.actions';
+import {login, logout } from '../src/actions/auth.actions';
+import Head from 'next/head';
+import { activeScreen } from '../src/actions/screensActive.actions';
 
 export default function Home({courses}) {
   const screensActive = useSelector(state => state.screensActive);
@@ -18,8 +20,16 @@ export default function Home({courses}) {
   useEffect(() => {
     async function getUser(){
       const userFinded = await getUserByToken();
+
+      if(userFinded == 'token expired'){
+        dispatch( activeScreen('errorMessage', 'Tu sesión ha caducado, por favor reingresa.') );
+        localStorage.removeItem('access-timestamp');
+        return dispatch( logout() );
+      }
       
-      if(userFinded) await dispatch( login(userFinded) );
+      if(userFinded) return dispatch( login(userFinded) );
+
+      return dispatch( logout() );
     };
 
     getUser();
@@ -27,6 +37,10 @@ export default function Home({courses}) {
 
   return (
     <main>
+      <Head>
+        <title>Curso Desarrollo Front-End - OvDev Course</title>
+      </Head>
+
       {screensActive.isLoading ? <IsLoading /> : <></>}
       {screensActive.successMessage ? <DoneMessage /> : <></>}
       {screensActive.errorMessage ? <ErrorMessage message={error ? error : 'Indefinido'}/> : <></>}

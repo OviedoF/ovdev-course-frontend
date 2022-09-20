@@ -5,10 +5,21 @@ import {useSelector, useDispatch} from 'react-redux';
 import { logout } from '../../actions/auth.actions';
 import Link from 'next/link';
 import React from 'react';
+import { activeScreen, desactiveScreen } from '../../actions/screensActive.actions';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
     const auth = useSelector(state => state.auth);
     const dispatch = useDispatch();
+    const router = useRouter();
+
+    const handleLogout = () => {
+        dispatch( logout() );
+        localStorage.removeItem('x-access');
+        dispatch( desactiveScreen('successMessage') );
+        dispatch( activeScreen('errorMessage', 'Te has desconectado, por favor vuelve a ingresar.') );
+        router.push('/');
+    }
 
     return ( 
         <nav className={styles.nav}>
@@ -24,7 +35,7 @@ const Navbar = () => {
 
                 { auth.user 
                     ?  
-                    <li onClick={(e) => dispatch( logout() )}>
+                    <li onClick={(e) => handleLogout()}>
                         <FontAwesomeIcon 
                         icon={faUserAltSlash} 
                         style={{marginRight: "10px", height: "18px"}} 

@@ -1,26 +1,44 @@
 import React, { useState, useEffect } from 'react';
-
 import axios from 'axios';
 import Image from 'next/image';
-import { useDispatch } from "react-redux";
-import { getUserByToken } from "../../../src/helpers/token.helper";
-import { login } from "../../../src/actions/auth.actions";
+import Head from 'next/head';
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
+import { getUserByToken } from '../../../src/helpers/token.helper';
+import { activeScreen } from '../../../src/actions/screensActive.actions';
+import { logout, login } from '../../../src/actions/auth.actions';
 
 const Favorites = ({topicsFavs}) => {
     const dispatch = useDispatch();
+    const router = useRouter();
     useEffect(() => {
   
-        async function getUser(){
-          const userFinded = await getUserByToken();
-          
-          if(userFinded) await dispatch( login(userFinded) );
-        };
-    
-        getUser();
-    }, [dispatch]);
+      async function getUser(){
+        const userFinded = await getUserByToken();
+  
+        if(userFinded == 'token expired'){
+          dispatch( activeScreen('errorMessage', 'Tu sesión ha caducado, por favor reingresa.') );
+          localStorage.removeItem('access-timestamp');
+          localStorage.removeItem('x-access');
+          dispatch( logout() );
+          return router.push('/');
+        }
+        
+        if(userFinded) return dispatch( login(userFinded) );
+  
+        dispatch( activeScreen('errorMessage', 'No estás logeado, por favor ingresa.') );
+        router.push('/');
+      };
+  
+      getUser();
+  }, [dispatch, router]);
 
     return (
         <main>
+            <Head>
+                <title>Mis tópicos favoritos - OvDev Course</title>
+            </Head>
+
             {topicsFavs.map(topic => {
                 return (
                 <div key={topic._id} className='card'>
@@ -94,7 +112,7 @@ export async function getServerSideProps(context) {
   
     return {
       props: {
-        topicsFavs,
+        topicsFavs
       },
     };
   }

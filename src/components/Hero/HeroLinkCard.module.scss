@@ -6,6 +6,9 @@
     align-items: center;
     justify-content: center;
     background-color: var(--color-ld);
+    opacity: 1;
+    border: 1px solid #FFFFFF40;
+    border-radius: 2px;
     cursor: pointer;
     transition: all .3s;
     position: relative;
@@ -21,6 +24,7 @@
 
     &:hover{
         background-color: var(--color-md);
+        border-color: #FFFFFF90;
     }
 
     .link_icon{

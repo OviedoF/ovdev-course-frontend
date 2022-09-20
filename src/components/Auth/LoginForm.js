@@ -7,7 +7,6 @@ import {
 } from "../../actions/screensActive.actions";
 import { getUserByToken } from "../../helpers/token.helper";
 import { login } from "../../actions/auth.actions";
-import clipPathAnimations from "../../animations/clipPath";
 
 const LoginForm = () => {
   const [form, setForm] = useState({});
@@ -43,7 +42,8 @@ const LoginForm = () => {
     await axios
       .post(`${process.env.NEXT_PUBLIC_API_HOST}/api/auth/signin`, form)
         .then((res) => {
-          console.log(res), localStorage.setItem("x-access", res.data.token);
+          console.log(res);
+          localStorage.setItem("x-access", res.data.token);
           localStorage.setItem("access-timestamp", Math.round(new Date().getTime()/1000));
           handleLogin();
           dispatch(desactiveScreen("isLoading"));

@@ -1,8 +1,43 @@
-import React from 'react';
+import Head from 'next/head';
+import React, { useState, useEffect } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
+import { getUserByToken } from '../../src/helpers/token.helper';
+import { activeScreen } from '../../src/actions/screensActive.actions';
+import { logout, login } from '../../src/actions/auth.actions';
 
 const Index = () => {
+    const dispatch = useDispatch();
+    const router = useRouter();
+    useEffect(() => {
+  
+      async function getUser(){
+        const userFinded = await getUserByToken();
+  
+        if(userFinded == 'token expired'){
+          dispatch( activeScreen('errorMessage', 'Tu sesión ha caducado, por favor reingresa.') );
+          localStorage.removeItem('access-timestamp');
+          localStorage.removeItem('x-access');
+          dispatch( logout() );
+          return router.push('/');
+        }
+        
+        if(userFinded) return dispatch( login(userFinded) );
+  
+        dispatch( activeScreen('errorMessage', 'No estás logeado, por favor ingresa.') );
+        router.push('/');
+      };
+  
+      getUser();
+  }, [dispatch, router]);
+
     return (
         <main>
+            <Head>
+                <title>Clases grabadas de desarrollo web - OvDev Course</title>
+            </Head>
+
             <h1>Clases grabadas</h1>
 
             <h2>Clase 1 - HTML BÁSICO Y FUNDAMENTAL</h2>

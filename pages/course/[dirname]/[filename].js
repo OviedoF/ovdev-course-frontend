@@ -4,14 +4,39 @@ import TopicsContainer from '../../../src/components/PageCourse/TopicsContainer'
 import styles from './index.module.scss';
 import Content from '../../../src/components/PageCourse/Content';
 import { useSelector, useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
 import { getUserByToken } from '../../../src/helpers/token.helper';
-import { login } from '../../../src/actions/auth.actions';
+import { activeScreen } from '../../../src/actions/screensActive.actions';
+import { logout, login } from '../../../src/actions/auth.actions';
 import IsLoading from '../../../src/components/screens/IsLoading';
+import Head from 'next/head';
 
 export default function TopicPage({course, topic}) {
     const {user} = useSelector(state => state.auth);
     const [isLogin, setisLogin] = useState(false);
     const dispatch = useDispatch();
+    const router = useRouter();
+    useEffect(() => {
+  
+      async function getUser(){
+        const userFinded = await getUserByToken();
+  
+        if(userFinded == 'token expired'){
+          dispatch( activeScreen('errorMessage', 'Tu sesión ha caducado, por favor reingresa.') );
+          localStorage.removeItem('access-timestamp');
+          localStorage.removeItem('x-access');
+          dispatch( logout() );
+          return router.push('/');
+        }
+        
+        if(userFinded) return dispatch( login(userFinded) );
+  
+        dispatch( activeScreen('errorMessage', 'No estás logeado, por favor ingresa.') );
+        router.push('/');
+      };
+  
+      getUser();
+  }, [dispatch, router]);
 
     useEffect(() => {
 
@@ -38,6 +63,10 @@ export default function TopicPage({course, topic}) {
 
   return (
     <main>
+        <Head>
+            <title>{topic.topic.name} - Curso {course.name}</title>
+        </Head>
+
         {isLogin 
         ? 
         <div className={styles.container}>

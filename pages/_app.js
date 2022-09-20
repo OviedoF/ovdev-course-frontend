@@ -12,9 +12,8 @@ import Footer from '../src/components/Footer/Footer'
 function MyApp({ Component, pageProps }) {
   return <>
     <Head>
-      <title>OvDev Curso</title>
       <meta name="description" content="Página creada para aprender Front-End en el curso de OvDev." />
-      <meta name='keywords' content='curso,frontend,react,html,css,ovdev,oviedofederico'/>
+      <meta name='keywords' content='curso,frontend,react,html,css,ovdev,javascript,js,desarrollo,oviedofederico'/>
     </Head>
 
     <Provider store={store}>

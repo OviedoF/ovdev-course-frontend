@@ -5,23 +5,42 @@ import Link from 'next/link'
 import Image from 'next/image';
 import { getUserByToken } from '../src/helpers/token.helper';
 import { useDispatch } from 'react-redux';
-import { login } from '../src/actions/auth.actions';
+import { login, logout } from '../src/actions/auth.actions';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { activeScreen } from '../src/actions/screensActive.actions';
 
 export default function ErrorPage() {
     const dispatch = useDispatch();
+    const router = useRouter();
+
     useEffect(() => {
 
         async function getUser(){
           const userFinded = await getUserByToken();
+
+          if(userFinded == 'token expired'){
+            dispatch( activeScreen('errorMessage', 'Tu sesión ha caducado, por favor reingresa.') );
+            localStorage.removeItem('access-timestamp');
+            localStorage.removeItem('x-access');
+            dispatch( logout() );
+            return router.push('/');
+          }
           
-          if(userFinded) await dispatch( login(userFinded) );
+          if(userFinded) return dispatch( login(userFinded) );
+
+          dispatch( activeScreen('errorMessage', 'No estás logeado, por favor ingresa.') );
+          router.push('/');
         };
     
         getUser();
-    }, [dispatch]);
+    }, [dispatch, router]);
 
   return (
     <main>
+        <Head>
+            <title>Error 404 página no encontrada - OvDev Course</title>
+        </Head>
         <Image 
             src='https://res.cloudinary.com/syphhy/image/upload/v1661834435/mimis/aGpdDgw_460s-removebg-preview_wblfmr.png' 
             height={350} 
