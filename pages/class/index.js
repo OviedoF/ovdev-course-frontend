@@ -40,6 +40,13 @@ const Index = () => {
 
             <h1>Clases grabadas</h1>
 
+            <h2>Clase 3 - CSS BÁSICO </h2>
+            <hr />
+            <p>1. Clase</p>
+            <div><iframe width="560" height="315" src="https://www.youtube.com/embed/YPiXjUytU5Q" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></div>
+            <p>2. Ejercicio 1 - Resolución</p>
+            <div><iframe width="560" height="315" src="https://www.youtube.com/embed/kSScik2zhxY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></div>
+
             <h2>Clase 1 - HTML BÁSICO Y FUNDAMENTAL</h2>
             <hr />
             <p>1. Presentación del curso</p>
