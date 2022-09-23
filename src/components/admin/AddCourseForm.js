@@ -38,6 +38,12 @@ export default function AddCourseForm() {
         formData.append('description', form.description);
         formData.append('images', form.images);
 
+        if(form.onlyAdmin == 'Y' || form.onlyAdmin == 'y') {
+            formData.append('onlyAdmin', true);
+        } else {
+            formData.append('onlyAdmin', false);
+        }
+
         console.log(form.images);
 
         await axios.post(`${process.env.NEXT_PUBLIC_API_HOST}/api/courses`, formData, {
@@ -68,6 +74,11 @@ export default function AddCourseForm() {
         <textarea name="description" id="" cols="30" rows="10" placeholder='description'  onChange={(e) => handleChange(e)}/>
 
         <input type="file" name="images" id="" style={{borderBottom: 'none'}}  onChange={(e) => handleChange(e)}/>
+
+        <div className="adminRestriction" style={{display: 'flex'}}>
+            <input type="input" name="onlyAdmin" id="onlyAdmin"  placeHolder="Is for admin? Y/N" onChange={(e) => handleChange(e)} style={{height: '20px'}}/>
+        </div>
+
 
 
         <button type="submit" style={{cursor: 'pointer', width: '60%'}}>Enviar</button>
